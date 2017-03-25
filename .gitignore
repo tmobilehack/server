@@ -1,3 +1,4 @@
 seattle-crime.zip
 *.ipynb
 .env
+*.pyc
