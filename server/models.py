@@ -6,15 +6,16 @@ class Crime(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     offense_type = db.Column(db.String())
     offense_description = db.Column(db.String())
-    report_date = db.Column(db.String())
-    offense_start_date = db.Column(db.String())
-    offense_end_date = db.Column(db.String())
+    report_date = db.Column(db.DateTime())
+    offense_start_date = db.Column(db.DateTime())
+    offense_end_date = db.Column(db.DateTime())
     block = db.Column(db.String())
     district = db.Column(db.String())
     beat = db.Column(db.String())
     census_tract = db.Column(db.String())
-    longitude = db.Column(db.String())
-    latitude = db.Column(db.String())
+    longitude = db.Column(db.Float(), index=True)
+    latitude = db.Column(db.Float(), index=True)
+    time = db.Column(db.Integer())
 
     def __init__(self,
                 offense_type,
@@ -27,7 +28,8 @@ class Crime(db.Model):
                 beat,
                 census_tract,
                 longitude,
-                latitude):
+                latitude,
+                time):
 
         self.offense_type = offense_type
         self.offense_description = offense_description
@@ -40,6 +42,7 @@ class Crime(db.Model):
         self.census_tract = census_tract
         self.longitude = longitude
         self.latitude = latitude
+        self.time = time
 
     def __repr__(self):
         return '<date {}>'.format(self.report_date)
