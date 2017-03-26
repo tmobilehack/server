@@ -2,3 +2,4 @@ seattle-crime.zip
 *.ipynb
 .env
 *.pyc
+SPD_Reports.csv
